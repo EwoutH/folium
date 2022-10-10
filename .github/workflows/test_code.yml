@@ -3,7 +3,6 @@ name: Code Tests
 on:
   pull_request:
   push:
-    branches: [main]
   workflow_dispatch:
   schedule:
     - cron: '0 6 * * 1'
@@ -14,7 +13,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
-        python-version: ["3.7", "3.10"]
+        python-version: ["3.7", "3.10", "3.11"]
       fail-fast: false
 
     steps:
