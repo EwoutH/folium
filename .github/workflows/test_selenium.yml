@@ -1,19 +1,19 @@
 name: Selenium Tests
 
 on:
-  push:
-    branches:
-    - main
   pull_request:
-    branches:
-    - main
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * 1'
 
 jobs:
   run:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Conda setup
       uses: s-weigand/setup-conda@v1
       with:
